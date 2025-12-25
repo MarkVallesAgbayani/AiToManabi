@@ -1,0 +1,43 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+/uploads/*
+!/uploads/.gitkeep
+
+# Cache
+.cache/
+
+# Database configuration (if it contains sensitive info)
+# config/database.php
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
+
+config.php
+database.php
+env.php

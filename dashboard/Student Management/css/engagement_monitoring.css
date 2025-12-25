@@ -1,0 +1,226 @@
+/**
+ * Engagement Monitoring Styles
+ * Custom styles for engagement monitoring interface
+ */
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* Loading animations */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Engagement level indicators */
+.engagement-high {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+}
+
+.engagement-medium {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.engagement-low {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+/* Table hover effects */
+.engagement-table tbody tr:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress bars */
+.engagement-progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #e5e7eb;
+}
+
+.engagement-progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-active {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.status-inactive {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.status-pending {
+    background-color: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+/* Card animations */
+.engagement-card {
+    transition: all 0.3s ease;
+}
+
+.engagement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter section */
+.filter-section {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 1px solid #e2e8f0;
+}
+
+/* Statistics cards */
+.stat-card {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Engagement metrics */
+.engagement-metric {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #bae6fd;
+}
+
+.engagement-metric-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    .engagement-table {
+        font-size: 0.875rem;
+    }
+    
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .filter-section {
+        background: linear-gradient(135deg, #1f2937, #111827);
+        border-color: #374151;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #1f2937, #111827);
+        border-color: #374151;
+    }
+    
+    .engagement-metric {
+        background: linear-gradient(135deg, #1e3a8a, #1e40af);
+        border-color: #3b82f6;
+    }
+}
+
+/* Custom scrollbar */
+.engagement-table::-webkit-scrollbar {
+    height: 6px;
+}
+
+.engagement-table::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.engagement-table::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.engagement-table::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Animation for data loading */
+.data-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.data-loaded {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+}
+
+/* Engagement trend indicators */
+.trend-up {
+    color: #10b981;
+}
+
+.trend-down {
+    color: #ef4444;
+}
+
+.trend-stable {
+    color: #6b7280;
+}
+
+/* Interactive elements */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interactive-element:hover {
+    transform: scale(1.02);
+}
+
+.interactive-element:active {
+    transform: scale(0.98);
+}

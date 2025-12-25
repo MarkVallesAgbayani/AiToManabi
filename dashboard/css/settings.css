@@ -1,0 +1,390 @@
+/* Modern Settings CSS - Following existing design system */
+
+/* Settings Navigation Buttons */
+.settings-nav-btn {
+    @apply flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-lg transition-all duration-200 hover:bg-gray-100 hover:text-gray-900;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.settings-nav-btn.active {
+    @apply bg-primary-50 text-primary-700 shadow-sm;
+    border: 1px solid rgba(225, 29, 72, 0.1);
+}
+
+.settings-nav-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.settings-nav-btn:hover svg {
+    transform: scale(1.05);
+}
+
+/* Settings Sections */
+.settings-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Input Styling */
+.settings-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm transition-all duration-200;
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:outline-none;
+    @apply hover:border-gray-400;
+    font-size: 14px;
+}
+
+.settings-input:read-only {
+    @apply bg-gray-50 text-gray-500 cursor-not-allowed;
+}
+
+.settings-input:disabled {
+    @apply bg-gray-100 text-gray-400 cursor-not-allowed;
+}
+
+/* Textarea specific styling */
+textarea.settings-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Select styling */
+select.settings-input {
+    @apply bg-white;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    padding-right: 40px;
+}
+
+/* Checkbox Styling */
+.settings-checkbox-wrapper {
+    @apply flex items-center space-x-3 p-3 rounded-lg transition-colors duration-200;
+    @apply hover:bg-gray-50 cursor-pointer;
+}
+
+.settings-checkbox {
+    @apply h-4 w-4 text-primary-600 border-gray-300 rounded transition-colors duration-200;
+    @apply focus:ring-2 focus:ring-primary-500 focus:ring-offset-0;
+}
+
+.settings-checkbox:checked {
+    @apply bg-primary-600 border-primary-600;
+}
+
+.settings-checkbox-label {
+    @apply text-sm text-gray-700 font-medium cursor-pointer select-none;
+    flex: 1;
+}
+
+.settings-checkbox-wrapper:hover .settings-checkbox-label {
+    @apply text-gray-900;
+}
+
+/* Profile Picture Section */
+.profile-picture-section {
+    @apply relative;
+}
+
+.profile-picture-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-50 rounded-full flex items-center justify-center opacity-0 transition-opacity duration-200 cursor-pointer;
+}
+
+.profile-picture-section:hover .profile-picture-overlay {
+    @apply opacity-100;
+}
+
+/* Button Styling */
+.settings-btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.settings-btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+}
+
+.settings-btn-secondary {
+    @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
+}
+
+.settings-btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+}
+
+.settings-btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
+
+/* Loading States */
+.settings-btn.loading {
+    @apply opacity-70 cursor-not-allowed;
+    position: relative;
+}
+
+.settings-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: spin 1s linear infinite;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success/Error Messages */
+.settings-message {
+    @apply px-4 py-3 rounded-lg mb-4 text-sm font-medium;
+    animation: slideDown 0.3s ease-out;
+}
+
+.settings-message.success {
+    @apply bg-green-50 text-green-800 border border-green-200;
+}
+
+.settings-message.error {
+    @apply bg-red-50 text-red-800 border border-red-200;
+}
+
+.settings-message.warning {
+    @apply bg-yellow-50 text-yellow-800 border border-yellow-200;
+}
+
+.settings-message.info {
+    @apply bg-blue-50 text-blue-800 border border-blue-200;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grid Layout Improvements */
+.settings-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.settings-grid-3 {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+/* Section Headers */
+.settings-section-header {
+    @apply border-b border-gray-200 px-6 py-4;
+}
+
+.settings-section-title {
+    @apply text-lg font-medium text-gray-900;
+}
+
+.settings-section-subtitle {
+    @apply text-sm text-gray-500 mt-1;
+}
+
+/* Form Groups */
+.settings-form-group {
+    @apply space-y-2;
+}
+
+.settings-form-label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.settings-form-help {
+    @apply text-xs text-gray-500 mt-1;
+}
+
+/* Card-like sections within settings */
+.settings-card {
+    @apply bg-white border border-gray-200 rounded-lg p-4 space-y-4;
+}
+
+.settings-card-header {
+    @apply border-b border-gray-100 pb-2 mb-4;
+}
+
+.settings-card-title {
+    @apply font-medium text-gray-900;
+}
+
+/* Time input styling */
+input[type="time"].settings-input {
+    @apply font-mono;
+}
+
+/* Number input styling */
+input[type="number"].settings-input {
+    @apply text-right;
+}
+
+/* Focus states for accessibility */
+.settings-nav-btn:focus {
+    @apply ring-2 ring-primary-500 ring-offset-2 outline-none;
+}
+
+.settings-checkbox:focus {
+    @apply ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Hover effects for interactive elements */
+.settings-card:hover {
+    @apply shadow-sm;
+    transition: box-shadow 0.2s ease;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .settings-nav-btn {
+        @apply text-xs px-2 py-1;
+    }
+    
+    .settings-nav-btn svg {
+        @apply w-4 h-4;
+    }
+    
+    .settings-section {
+        @apply px-4;
+    }
+    
+    .settings-grid-2,
+    .settings-grid-3 {
+        @apply grid-cols-1;
+    }
+    
+    .settings-form-group {
+        @apply space-y-3;
+    }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    .settings-input {
+        @apply bg-gray-800 border-gray-600 text-gray-100;
+    }
+    
+    .settings-input:focus {
+        @apply border-primary-400 ring-primary-400;
+    }
+    
+    .settings-checkbox-wrapper:hover {
+        @apply bg-gray-800;
+    }
+}
+
+/* Custom scrollbar for long sections */
+.settings-section {
+    scrollbar-width: thin;
+    scrollbar-color: #e5e7eb #f9fafb;
+}
+
+.settings-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.settings-section::-webkit-scrollbar-track {
+    background: #f9fafb;
+    border-radius: 3px;
+}
+
+.settings-section::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 3px;
+}
+
+.settings-section::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+}
+
+/* Validation states */
+.settings-input.invalid {
+    @apply border-red-300 ring-red-500 focus:border-red-500 focus:ring-red-500;
+}
+
+.settings-input.valid {
+    @apply border-green-300 ring-green-500 focus:border-green-500 focus:ring-green-500;
+}
+
+/* Settings navigation responsive */
+@media (max-width: 640px) {
+    #settings-nav {
+        @apply flex-wrap gap-2;
+    }
+    
+    .settings-nav-btn {
+        @apply flex-1 justify-center min-w-0;
+    }
+    
+    .settings-nav-btn span {
+        @apply hidden;
+    }
+    
+    .settings-nav-btn svg {
+        @apply mr-0;
+    }
+}
+
+/* Enhanced focus indicators for better accessibility */
+.settings-input:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2;
+}
+
+.settings-checkbox:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Print styles */
+@media print {
+    .settings-nav-btn,
+    .settings-btn {
+        @apply hidden;
+    }
+    
+    .settings-section {
+        @apply block;
+    }
+    
+    .settings-input {
+        @apply border-gray-400;
+    }
+}

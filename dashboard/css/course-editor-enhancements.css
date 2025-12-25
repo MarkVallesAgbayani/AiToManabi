@@ -1,0 +1,211 @@
+/* Course Editor UI Enhancements - Extends question-type-manager.css */
+
+/* Import and extend the question type manager styles */
+@import url('./question-type-manager.css');
+@import url('./question-answer-forms.css');
+
+/* Course Editor Specific Enhancements */
+.course-editor-quiz-modal .modal-content {
+    padding: 2rem !important;
+}
+
+.course-editor-quiz-modal .modal-header {
+    padding-bottom: 1.5rem !important;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.course-editor-quiz-modal .modal-body {
+    padding: 0 !important;
+    margin-bottom: 1.5rem;
+}
+
+.course-editor-quiz-modal .modal-footer {
+    padding-top: 1.5rem !important;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 1.5rem;
+}
+
+/* Enhanced Question Forms for Course Editor */
+.enhanced-question-form {
+    background: #fafbfc;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+
+/* Question Type Button Enhancements */
+.course-editor-add-question-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.course-editor-add-question-btn:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Quiz Modal Improvements */
+#questionsModal .bg-white {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e5e7eb;
+}
+
+#questionsModal .question-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease-in-out;
+}
+
+#questionsModal .question-item:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Question Type Badges for Course Editor */
+.course-editor-question-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.course-editor-question-badge.pronunciation {
+    background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+    color: #7c3aed;
+    border: 1px solid #e9d5ff;
+}
+
+.course-editor-question-badge.multiple-choice {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.course-editor-question-badge.vocabulary {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.course-editor-question-badge.kanji {
+    background: linear-gradient(135deg, #fef7ff, #fae8ff);
+    color: #a21caf;
+    border: 1px solid #e879f9;
+}
+
+.course-editor-question-badge.grammar {
+    background: linear-gradient(135deg, #fff7ed, #fed7aa);
+    color: #ea580c;
+    border: 1px solid #fdba74;
+}
+
+/* Enhanced Form Controls */
+.course-editor-form-control {
+    transition: all 0.2s ease-in-out;
+}
+
+.course-editor-form-control:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background-color: #ffffff;
+}
+
+/* Responsive Improvements for Course Editor */
+@media (max-width: 768px) {
+    .course-editor-quiz-modal .modal-content {
+        padding: 1.5rem !important;
+        margin: 1rem;
+    }
+    
+    .enhanced-question-form {
+        padding: 1rem;
+    }
+    
+    .course-editor-add-question-btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-editor-quiz-modal .modal-content {
+        padding: 1rem !important;
+        margin: 0.5rem;
+    }
+    
+    .enhanced-question-form {
+        padding: 0.75rem;
+    }
+    
+    .course-editor-question-badge {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.5rem;
+    }
+}
+
+/* Loading States for Course Editor */
+.course-editor-loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.course-editor-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #8b5cf6;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: courseEditorSpin 1s linear infinite;
+}
+
+@keyframes courseEditorSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error States for Course Editor */
+.course-editor-success {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+}
+
+.course-editor-error {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: none;
+}
+
+/* Animation for smooth transitions */
+.course-editor-fade-in {
+    animation: courseEditorFadeIn 0.3s ease-out;
+}
+
+@keyframes courseEditorFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

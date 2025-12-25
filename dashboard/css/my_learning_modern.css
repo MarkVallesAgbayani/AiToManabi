@@ -1,0 +1,720 @@
+/**
+ * Modern My Learning Styles
+ * Matching dashboard, student courses, and view course design
+ */
+
+/* Import Rubik Font */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Rubik Font Classes */
+.rubik-light { font-family: "Rubik", sans-serif; font-weight: 300; }
+.rubik-regular { font-family: "Rubik", sans-serif; font-weight: 400; }
+.rubik-medium { font-family: "Rubik", sans-serif; font-weight: 500; }
+.rubik-semibold { font-family: "Rubik", sans-serif; font-weight: 600; }
+.rubik-bold { font-family: "Rubik", sans-serif; font-weight: 700; }
+.rubik-extrabold { font-family: "Rubik", sans-serif; font-weight: 800; }
+.rubik-black { font-family: "Rubik", sans-serif; font-weight: 900; }
+
+/* Root Variables */
+:root {
+    --primary-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    --primary-color: #ef4444;
+    --primary-dark: #dc2626;
+    --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --success-gradient: linear-gradient(135deg, #ef4444 0%, #a50707 100%);
+    --background-gradient: linear-gradient(135deg, #fef2f2 0%, #fee2e2 25%, #fecaca 50%, #ffffff 100%);
+    --dark-background-gradient: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 25%, #000000 50%, #111111 100%);
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --border-radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Styles */
+* {
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: auto !important;
+}
+
+body {
+    scroll-behavior: auto !important;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+.dark body {
+    background: var(--dark-background-gradient);
+}
+
+.dark body::before {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 107, 107, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
+}
+
+/* Abstract Background Shapes */
+.abstract-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.abstract-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+}
+
+.dark .abstract-shape {
+    opacity: 0.12;
+}
+
+.shape-1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    top: -200px;
+    right: -200px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    bottom: -150px;
+    left: -150px;
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    top: 30%;
+    left: -125px;
+    animation-delay: 10s;
+}
+
+.shape-4 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #ff6b6b, #667eea);
+    bottom: 20%;
+    right: -175px;
+    animation-delay: 15s;
+}
+
+/* Navigation Enhancements */
+.modern-nav {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .modern-nav {
+    background: rgba(20, 20, 20, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Remove body padding - using Tailwind's pt-16 instead */
+
+/* Main Container */
+.learning-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Content Learning Container */
+.learning-container:not(.modern-nav .learning-container) {
+    padding: 2rem;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ef4444 0%, #a50707 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .page-title {
+    color: #f9fafb;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.dark .page-subtitle {
+    color: #9ca3af;
+}
+
+/* Filter Section */
+.filter-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.dark .filter-section {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-section:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: end;
+}
+
+@media (max-width: 768px) {
+    .filter-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.filter-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid rgba(239, 68, 68, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1f2937;
+    font-weight: 500;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.dark .filter-input {
+    background: rgba(30, 30, 30, 0.9);
+    color: #f9fafb;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Course Cards */
+.course-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.dark .course-card {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(239, 68, 68, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.dark .course-card:hover {
+    background: rgba(40, 40, 40, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.course-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .course-layout {
+        flex-direction: row;
+    }
+}
+
+/* Course Image */
+.course-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .course-image-container {
+        width: 300px;
+        height: auto;
+        min-height: 250px;
+    }
+}
+
+.course-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.course-card:hover .course-image {
+    transform: scale(1.05);
+}
+
+.course-status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.status-not-started {
+    background: rgba(156, 163, 175, 0.9);
+    color: white;
+}
+
+.status-in-progress {
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+}
+
+.status-completed {
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
+}
+
+/* Course Content */
+.course-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.course-category {
+    color: #6b7280;
+    font-weight: 600;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+}
+
+.dark .course-category {
+    color: #93c5fd;
+    background: rgba(102, 126, 234, 0.2);
+}
+
+.course-enrolled-date {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.dark .course-enrolled-date {
+    color: #9ca3af;
+}
+
+.course-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.dark .course-title {
+    color: #f9fafb;
+}
+
+.course-description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.dark .course-description {
+    color: #9ca3af;
+}
+
+/* Progress Section */
+.progress-section {
+    background: rgba(239, 68, 68, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dark .progress-section {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.dark .progress-label {
+    color: #d1d5db;
+}
+
+.progress-percentage {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.progress-stats {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+}
+
+.dark .progress-stats {
+    color: #9ca3af;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(239, 68, 68, 0.2);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 50px;
+    transition: width 0.8s ease-out;
+    width: 0%;
+}
+
+.last-accessed {
+    font-size: 0.75rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.dark .last-accessed {
+    color: #9ca3af;
+}
+
+/* Action Buttons */
+.course-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.course-status-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status-text-not-started {
+    color: #6b7280;
+}
+
+.dark .status-text-not-started {
+    color: #9ca3af;
+}
+
+.status-text-in-progress {
+    color: #3b82f6;
+}
+
+.dark .status-text-in-progress {
+    color: #60a5fa;
+}
+
+.status-text-completed {
+    color: #10b981;
+}
+
+.dark .status-text-completed {
+    color: #34d399;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    border: 2px dashed rgba(239, 68, 68, 0.3);
+    box-shadow: var(--card-shadow);
+    margin-top: 3rem;
+}
+
+.dark .empty-state {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.empty-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.75rem;
+}
+
+.dark .empty-title {
+    color: #d1d5db;
+}
+
+.empty-description {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.dark .empty-description {
+    color: #9ca3af;
+}
+
+.empty-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--primary-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.empty-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading States */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 8px;
+}
+
+.dark .skeleton {
+    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+    background-size: 200% 100%;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .learning-container:not(.modern-nav .learning-container) {
+        padding: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .learning-container:not(.modern-nav .learning-container) {
+        padding: 1rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .course-content {
+        padding: 1.5rem;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-group {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .learning-container:not(.modern-nav .learning-container) {
+        padding: 0.75rem;
+    }
+    
+    .course-content {
+        padding: 1rem;
+    }
+    
+    .filter-section {
+        padding: 1.5rem;
+    }
+    
+    .progress-section {
+        padding: 1rem;
+    }
+}

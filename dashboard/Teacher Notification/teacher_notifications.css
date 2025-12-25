@@ -1,0 +1,426 @@
+/* Teacher Notification Styles */
+
+/* Override any existing notification styles */
+.teacher-notification-container {
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 1000 !important;
+}
+
+/* Teacher Notification Bell - Admin Style */
+.teacher-notification-bell {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 8px !important;
+    background: rgba(0,0,0,0.05) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+    font-size: 1.25rem !important;
+    z-index: 1 !important;
+}
+
+.teacher-notification-bell:hover {
+    transform: scale(1.1) !important;
+    background: rgba(0,0,0,0.1) !important;
+}
+
+.teacher-notification-bell:active {
+    transform: scale(0.95) !important;
+}
+
+/* Notification Count Badge */
+.teacher-notification-count {
+    position: absolute !important;
+    top: -8px !important;
+    right: -8px !important;
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    min-width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    border: 2px solid white !important;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4) !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    visibility: visible !important;
+    z-index: 2 !important;
+}
+
+/* Pulse animation for new notifications */
+.teacher-notification-count.animate-pulse {
+    animation: teacherPulseGlow 2s infinite !important;
+}
+
+@keyframes teacherPulseGlow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 16px rgba(239, 68, 68, 0.8);
+    }
+}
+
+/* Notification Dropdown - Admin Style */
+.teacher-notification-dropdown {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    right: 0 !important;
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+    width: 380px !important;
+    max-height: 500px !important;
+    overflow: hidden !important;
+    z-index: 10000 !important;
+    display: none !important;
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    transition: all 0.2s ease !important;
+    margin-top: 8px !important;
+}
+
+.teacher-notification-dropdown.show {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Dropdown Header - Admin Style */
+.teacher-notification-dropdown .notification-header {
+    background: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 16px !important;
+}
+
+.teacher-notification-dropdown .notification-header h3 {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+}
+
+.teacher-notification-dropdown .notification-header p {
+    font-size: 13px !important;
+    color: #6b7280 !important;
+    margin: 4px 0 0 0 !important;
+}
+
+/* Category Headers */
+.teacher-notification-category-header {
+    background: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 8px 16px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+}
+
+.teacher-notification-category-header h4 {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #6b7280 !important;
+    margin: 0 !important;
+}
+
+/* Notification Items */
+.teacher-notification-item {
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.teacher-notification-item::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, rgba(244, 63, 94, 0.1), transparent) !important;
+    transition: width 0.3s ease !important;
+}
+
+.teacher-notification-item:hover {
+    background: #f9fafb !important;
+    transform: translateX(4px) !important;
+}
+
+.teacher-notification-item:hover::before {
+    width: 100% !important;
+}
+
+.teacher-notification-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Notification Content */
+.teacher-notification-content {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+}
+
+.teacher-notification-icon {
+    font-size: 18px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) !important;
+}
+
+.teacher-notification-body {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.teacher-notification-title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #1f2937 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.teacher-notification-message {
+    font-size: 12px !important;
+    color: #6b7280 !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.4 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.teacher-notification-meta {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+}
+
+.teacher-notification-timestamp {
+    font-size: 11px !important;
+    color: #9ca3af !important;
+    white-space: nowrap !important;
+}
+
+.teacher-notification-category-badge {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    padding: 2px 6px !important;
+    border-radius: 6px !important;
+    text-transform: capitalize !important;
+}
+
+.teacher-notification-priority {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Priority Colors */
+.priority-error {
+    color: #dc2626 !important;
+}
+
+.priority-warning {
+    color: #d97706 !important;
+}
+
+.priority-success {
+    color: #059669 !important;
+}
+
+.priority-info {
+    color: #2563eb !important;
+}
+
+/* Category Badge Colors */
+.category-student-progress {
+    background: #dcfce7 !important;
+    color: #166534 !important;
+}
+
+.category-engagement {
+    background: #fed7aa !important;
+    color: #9a3412 !important;
+}
+
+.category-course-updates {
+    background: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+.category-admin-updates {
+    background: #e9d5ff !important;
+    color: #7c2d12 !important;
+}
+
+.category-system {
+    background: #f3f4f6 !important;
+    color: #374151 !important;
+}
+
+/* Priority Background Colors */
+.bg-priority-error {
+    background: #fef2f2 !important;
+    border-left: 3px solid #dc2626 !important;
+}
+
+.bg-priority-warning {
+    background: #fffbeb !important;
+    border-left: 3px solid #d97706 !important;
+}
+
+.bg-priority-success {
+    background: #f0fdf4 !important;
+    border-left: 3px solid #059669 !important;
+}
+
+.bg-priority-info {
+    background: #eff6ff !important;
+    border-left: 3px solid #2563eb !important;
+}
+
+/* Footer */
+.teacher-notification-footer {
+    background: #f9fafb !important;
+    border-top: 1px solid #e5e7eb !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.teacher-notification-footer .last-updated {
+    font-size: 11px !important;
+    color: #6b7280 !important;
+}
+
+.teacher-notification-footer .refresh-btn {
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: #2563eb !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+}
+
+.teacher-notification-footer .refresh-btn:hover {
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+}
+
+/* Empty State */
+.teacher-notification-empty {
+    padding: 40px 20px !important;
+    text-align: center !important;
+    color: #6b7280 !important;
+}
+
+.teacher-notification-empty .empty-icon {
+    font-size: 32px !important;
+    margin-bottom: 12px !important;
+    opacity: 0.6 !important;
+}
+
+.teacher-notification-empty .empty-title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 0 0 4px 0 !important;
+}
+
+.teacher-notification-empty .empty-subtitle {
+    font-size: 12px !important;
+    margin: 0 !important;
+    color: #9ca3af !important;
+}
+
+/* Scrollbar Styling */
+.teacher-notification-dropdown .notification-scroll::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.teacher-notification-dropdown .notification-scroll::-webkit-scrollbar-track {
+    background: #f3f4f6 !important;
+}
+
+.teacher-notification-dropdown .notification-scroll::-webkit-scrollbar-thumb {
+    background: #d1d5db !important;
+    border-radius: 3px !important;
+}
+
+.teacher-notification-dropdown .notification-scroll::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .teacher-notification-dropdown {
+        width: calc(100vw - 20px) !important;
+        right: 10px !important;
+        left: 10px !important;
+        max-width: none !important;
+    }
+    
+    .teacher-notification-item {
+        padding: 10px 12px !important;
+    }
+    
+    .teacher-notification-content {
+        gap: 10px !important;
+    }
+}
+
+/* Animation for new notifications */
+@keyframes teacherSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.teacher-notification-item.new {
+    animation: teacherSlideIn 0.3s ease-out !important;
+}
+
+/* Focus states for accessibility */
+.teacher-notification-bell:focus {
+    outline: 2px solid #f43f5e !important;
+    outline-offset: 2px !important;
+}
+
+.teacher-notification-item:focus {
+    outline: 2px solid #f43f5e !important;
+    outline-offset: -2px !important;
+}

@@ -1,0 +1,854 @@
+/* Modern Alert System CSS */
+/* ======================= */
+
+.alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 400px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.alert {
+  position: relative;
+  margin-bottom: 12px;
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  pointer-events: auto;
+  transform: translateX(100%) scale(0.95);
+  opacity: 0;
+  animation: modernSlideIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.alert.hiding {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+.alert-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 18px 22px;
+  gap: 14px;
+  position: relative;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.alert-message {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.alert-close {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+.alert-close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.alert-close svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Alert Types */
+.alert-error {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.96) 0%, 
+    rgba(220, 38, 38, 0.96) 50%,
+    rgba(185, 28, 28, 0.96) 100%);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 20px 25px -5px rgba(239, 68, 68, 0.25),
+    0 10px 10px -5px rgba(220, 38, 38, 0.15);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.96) 0%, 
+    rgba(5, 150, 105, 0.96) 50%,
+    rgba(4, 120, 87, 0.96) 100%);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 20px 25px -5px rgba(16, 185, 129, 0.25),
+    0 10px 10px -5px rgba(5, 150, 105, 0.15);
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.96) 0%, 
+    rgba(217, 119, 6, 0.96) 50%,
+    rgba(180, 83, 9, 0.96) 100%);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 20px 25px -5px rgba(245, 158, 11, 0.25),
+    0 10px 10px -5px rgba(217, 119, 6, 0.15);
+}
+
+.alert-info {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.96) 0%, 
+    rgba(37, 99, 235, 0.96) 50%,
+    rgba(29, 78, 216, 0.96) 100%);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 20px 25px -5px rgba(59, 130, 246, 0.25),
+    0 10px 10px -5px rgba(37, 99, 235, 0.15);
+}
+
+/* Progress Bar for Auto-dismiss */
+.alert-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.alert-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  animation: progressShrink 5s linear forwards;
+  transform-origin: left;
+}
+
+/* Animations */
+@keyframes modernSlideIn {
+  0% {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-5%) scale(1.02);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes progressShrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Shimmer effect for enhanced visual appeal */
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .alert-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .alert-content {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  
+  .alert-message {
+    font-size: 13px;
+  }
+  
+  .alert-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .alert-close {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .alert-close svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .alert {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .alert {
+    border-width: 2px;
+  }
+  
+  .alert-close {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    animation: none;
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .alert.hiding {
+    animation: none;
+    opacity: 0;
+  }
+  
+  .alert::before {
+    animation: none;
+  }
+  
+  .alert-progress-bar {
+    animation: none;
+  }
+  
+  .alert-close {
+    transition: none;
+  }
+}
+
+/* Focus management for accessibility */
+.alert:focus-within {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.alert-close:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 1px;
+}
+
+/* Modern Confirm Dialog Styles */
+.modern-btn-secondary {
+  background: linear-gradient(135deg, 
+    rgba(107, 114, 128, 0.9) 0%, 
+    rgba(75, 85, 99, 0.9) 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.modern-btn-secondary:hover {
+  background: linear-gradient(135deg, 
+    rgba(75, 85, 99, 0.95) 0%, 
+    rgba(55, 65, 81, 0.95) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+.modern-btn-secondary:focus {
+  outline: 2px solid rgba(107, 114, 128, 0.5);
+  outline-offset: 2px;
+}
+
+.modern-btn-danger {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.9) 0%, 
+    rgba(220, 38, 38, 0.9) 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.modern-btn-danger:hover {
+  background: linear-gradient(135deg, 
+    rgba(220, 38, 38, 0.95) 0%, 
+    rgba(185, 28, 28, 0.95) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+}
+
+.modern-btn-danger:focus {
+  outline: 2px solid rgba(239, 68, 68, 0.5);
+  outline-offset: 2px;
+}
+
+.modern-btn-secondary:active,
+.modern-btn-danger:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive button styles */
+@media (max-width: 640px) {
+  .modern-btn-secondary,
+  .modern-btn-danger {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Inline Error Messages */
+/* ==================== */
+
+.inline-error-message {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transform: translateY(-5px) scale(0.98);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  line-height: 1.4;
+  word-wrap: break-word;
+  hyphens: auto;
+  display: block;
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.inline-error-message.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  max-height: 60px;
+  display: block;
+  position: static;
+}
+
+/* Remove arrow pointer */
+.inline-error-message::after {
+  display: none;
+}
+
+/* For non-grid fields, ensure proper spacing */
+.mb-3 {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.mb-3 .inline-error-message {
+  position: static;
+  margin-top: 4px;
+}
+
+.inline-error-message.success {
+  background: rgba(16, 185, 129, 0.08);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.1);
+}
+
+.inline-error-message.warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+  border-color: rgba(245, 158, 11, 0.2);
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.1);
+}
+
+
+
+/* Input field error state */
+.modern-input.has-error input {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.modern-input.has-error .input-icon {
+  color: #ef4444;
+}
+
+/* Special error styling for name fields to keep them clean and aligned */
+.form-grid .modern-input.has-error input {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.02);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.08);
+  transition: all 0.2s ease;
+}
+
+.form-grid .modern-input.has-error .input-icon {
+  color: #ef4444;
+  opacity: 0.8;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Success state for grid fields */
+.form-grid .modern-input.has-success input {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.02);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.08);
+}
+
+.form-grid .modern-input.has-success .input-icon {
+  color: #10b981;
+  opacity: 0.8;
+}
+
+/* Warning state for grid fields */
+.form-grid .modern-input.has-warning input {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.02);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.08);
+}
+
+.form-grid .modern-input.has-warning .input-icon {
+  color: #f59e0b;
+  opacity: 0.8;
+}
+
+/* Input field success state */
+.modern-input.has-success input {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.modern-input.has-success .input-icon {
+  color: #10b981;
+}
+
+/* Auto-adjust form height for inline messages */
+.form-section {
+  min-height: auto;
+  transition: min-height 0.3s ease;
+  position: relative;
+}
+
+/* Form Grid Specific Error Message Handling - Enhanced for consistent layout */
+.form-grid .inline-error-message {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 6px;
+  margin: 0;
+  border-radius: 4px;
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: auto;
+  transform: translateY(-3px) scale(0.98);
+  box-shadow: 0 1px 3px rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.06);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  line-height: 1.2;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-top: 3px;
+  max-height: 0;
+  overflow: hidden;
+  min-height: 16px; /* Reserve consistent space */
+  word-wrap: break-word;
+  hyphens: auto;
+  text-align: left;
+  display: block;
+}
+
+.form-grid .inline-error-message.show {
+  position: static;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  max-height: 55px; /* Increased to accommodate longer messages */
+}
+
+.form-grid .inline-error-message.success {
+  background: rgba(16, 185, 129, 0.06);
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-grid .inline-error-message.warning {
+  background: rgba(245, 158, 11, 0.06);
+  color: #d97706;
+  border-color: rgba(245, 158, 11, 0.15);
+  box-shadow: 0 1px 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Remove arrow pointer for form grid */
+.form-grid .inline-error-message::after {
+  display: none;
+}
+
+/* Enhanced form grid items with consistent spacing for name fields */
+.form-grid > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px; /* Increased to accommodate longer error messages */
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow: visible; /* Allow error messages to be fully visible */
+}
+
+/* Zoom optimization for 100% zoom level */
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .form-grid > div {
+    min-height: 105px; /* Slightly increased for better spacing with longer messages */
+  }
+  
+  .form-grid .modern-input input {
+    font-size: 14px; /* Slightly smaller font for better fit */
+    padding: 0.75rem 0.75rem 0.75rem 2.75rem;
+  }
+  
+  .form-grid .modern-label {
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-grid .inline-error-message {
+    font-size: 9px; /* Smaller font for longer messages */
+    max-height: 45px;
+  }
+}
+
+.form-grid .modern-input {
+  position: relative;
+  margin-bottom: 0.25rem;
+  flex-grow: 1;
+}
+
+/* Enhanced label spacing for grid */
+.form-grid .modern-label {
+  margin-bottom: 0.5rem;
+  min-height: 20px;
+  display: block;
+}
+
+/* Responsive adjustments for error messages - Enhanced for grid */
+@media (max-width: 768px) {
+  .form-grid .inline-error-message {
+    font-size: 9px;
+    max-height: 42px; /* Increased for longer messages */
+    min-height: 12px;
+    line-height: 1.1;
+  }
+  
+  .form-grid > div {
+    min-height: 95px; /* Increased for longer messages */
+  }
+  
+  .inline-error-message {
+    font-size: 10px;
+    max-height: 48px; /* Increased for longer messages */
+  }
+  
+  .inline-error-message.show {
+    max-height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-grid .inline-error-message {
+    font-size: 8px;
+    max-height: 38px; /* Increased for longer messages */
+    min-height: 10px;
+    line-height: 1.1;
+    padding: 1px 2px;
+  }
+  
+  .form-grid > div {
+    min-height: 90px; /* Increased for mobile to accommodate longer messages */
+  }
+  
+  .form-grid .modern-label {
+    font-size: 11px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .inline-error-message {
+    font-size: 9px;
+    max-height: 42px; /* Increased for longer messages */
+  }
+  
+  .inline-error-message.show {
+    max-height: 42px;
+  }
+}
+
+/* Phone Input Styles */
+/* ================== */
+
+.phone-input-container {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  align-items: stretch; /* Ensures both elements align properly */
+}
+
+.country-selector {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.country-selector select {
+  background: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  
+  /* MATCHED HEIGHT PROPERTIES */
+  height: 48px; /* Match your input field height */
+  padding: 0 20px 0 8px; /* Simplified padding for consistent height */
+  line-height: 1.5; /* Match input line-height */
+  box-sizing: border-box; /* Critical for height matching */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  
+  /* COMPACT WIDTH */
+  width: 75px;
+  min-width: 75px;
+  max-width: 75px;
+  
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  /* Ensure vertical alignment */
+  vertical-align: middle;
+}
+
+.country-selector select:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.country-selector select:focus {
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15);
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.country-selector select option {
+  background: #1f2937 !important;
+  color: #ffffff !important;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.country-selector select option:hover {
+  background: #374151 !important;
+  color: #ffffff !important;
+}
+
+.country-selector select option:checked,
+.country-selector select option:selected {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+.phone-input input {
+  border-radius: 0 8px 8px 0 !important;
+  border-left: none !important;
+  height: 48px; /* Ensure input has same height */
+  box-sizing: border-box;
+}
+
+.phone-format-hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  margin-left: 2px;
+  font-style: italic;
+}
+
+/* Additional fallback styling for better browser compatibility */
+.country-selector select::-webkit-outer-spin-button,
+.country-selector select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.country-selector select::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Mobile responsiveness for phone input */
+@media (max-width: 480px) {
+  .phone-input-container {
+    flex-direction: row; /* Keep horizontal */
+    gap: 0;
+  }
+  
+  .country-selector select {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    height: 44px; /* Slightly smaller on mobile */
+    padding: 0 22px 0 8px;
+    font-size: 12px;
+  }
+  
+  .phone-input input {
+    height: 44px; /* Match mobile height */
+  }
+}
+
+.phone-format-hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  margin-left: 2px;
+  font-style: italic;
+}
+
+/* Additional fallback styling for better browser compatibility */
+.country-selector select::-webkit-outer-spin-button,
+.country-selector select::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.country-selector select::-moz-focus-inner {
+  border: 0;
+}
+/* Mobile responsiveness for phone input */
+@media (max-width: 480px) {
+  .phone-input-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .country-selector select {
+    border-radius: 8px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+  
+  .phone-input input {
+    border-radius: 8px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+}

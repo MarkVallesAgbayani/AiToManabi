@@ -1,0 +1,214 @@
+/* Inline Error Messages for Login */
+/* ================================ */
+
+.inline-error-message {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #ef4444;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, max-height 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  line-height: 1.4;
+  word-wrap: break-word;
+  hyphens: auto;
+  display: block;
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.inline-error-message.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 48px;
+  display: block;
+  position: static;
+}
+
+.inline-error-message.success {
+  background: transparent;
+  color: #10b981;
+  box-shadow: none;
+}
+
+.inline-error-message.warning {
+  background: transparent;
+  color: #f59e0b;
+  box-shadow: none;
+}
+
+/* Input field error state */
+.modern-input.has-error input {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  animation: shake 0.5s ease-in-out;
+}
+
+.modern-input.has-error .input-icon {
+  color: #ef4444;
+}
+
+/* Input field success state */
+.modern-input.has-success input {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.modern-input.has-success .input-icon {
+  color: #10b981;
+}
+
+/* Input field warning state */
+.modern-input.has-warning input {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.05);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.modern-input.has-warning .input-icon {
+  color: #f59e0b;
+}
+
+/* For fields with margin bottom */
+.mb-3 {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.mb-3 .inline-error-message {
+  position: static;
+  margin-top: 4px;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Loading state for form submission */
+.modern-input.loading input {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Loading state for submit button */
+.modern-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.modern-btn:disabled:hover {
+  transform: none !important;
+  box-shadow: 0 4px 6px -2px rgba(220, 38, 38, 0.1);
+}
+
+/* Loading spinner in button */
+.modern-btn #btnSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modern-btn .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Focus enhancement */
+.modern-input input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.modern-input.has-error input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.modern-input.has-success input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.modern-input.has-warning input:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+/* Responsive adjustments for error messages */
+@media (max-width: 768px) {
+  .inline-error-message {
+    font-size: 11px;
+    max-height: 44px;
+  }
+  
+  .inline-error-message.show {
+    max-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inline-error-message {
+    font-size: 10px;
+    max-height: 40px;
+  }
+  
+  .inline-error-message.show {
+    max-height: 40px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .inline-error-message,
+  .modern-input input,
+  .modern-input .input-icon {
+    transition: none;
+  }
+  
+  .modern-input.has-error input {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .inline-error-message {
+    font-weight: 600;
+  }
+  
+  .modern-input.has-error input {
+    border-width: 2px;
+  }
+  
+  .modern-input.has-success input {
+    border-width: 2px;
+  }
+  
+  .modern-input.has-warning input {
+    border-width: 2px;
+  }
+}

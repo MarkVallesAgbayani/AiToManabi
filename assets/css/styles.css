@@ -1,0 +1,36 @@
+/* Modal styles */
+.modal-header {
+    cursor: move;
+    user-select: none;
+}
+
+.modal-header h3 {
+    pointer-events: none;
+}
+
+/* Tooltip styles */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+} 

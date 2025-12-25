@@ -1,0 +1,342 @@
+/* Learn More Page Styles */
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-red: #dc2626;
+  --primary-red-dark: #b91c1c;
+  --primary-red-light: #fef2f2;
+  --secondary-red: #ef4444;
+  --accent-red: #fca5a5;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --bg-light: #f9fafb;
+  --white: #ffffff;
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Base styles */
+body {
+  background: var(--bg-light);
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* Hero section with background image */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Static background styling */
+.hero-section .absolute:first-child {
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Enhanced text shadows for better readability */
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-xl {
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* Ensure no dark shadows on hero section */
+.hero-section {
+  background: transparent;
+}
+
+.hero-section::after {
+  display: none;
+}
+
+/* Feature cards with glassmorphism effect */
+.feature-card {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Icon containers with gradient backgrounds */
+.feature-card .w-24 {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+}
+
+.feature-card:hover .w-24 {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-red-dark) 0%, #991b1b 100%);
+  box-shadow: var(--shadow-heavy);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 2px solid var(--white);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--white);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+}
+
+/* Header styles */
+#main-header {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+/* Navigation link hover effects */
+nav a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-red);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Statistics section */
+.statistics-section {
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fix for statistics text display */
+.statistics-section .text-4xl,
+.statistics-section .text-5xl {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+  min-width: fit-content;
+}
+
+.statistics-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.1;
+}
+
+/* Form styles */
+input[type="email"] {
+  transition: all 0.3s ease;
+  border: 1px solid #d1d5db;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Footer styles */
+footer {
+  background: var(--white);
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+  }
+  
+  .feature-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-red);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-red-dark);
+}
+
+/* Loading animation */
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Force image visibility - override all animations */
+.relative img {
+  display: block !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+  visibility: visible !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Hover effects for interactive elements */
+.interactive-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient text effects */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-red) 0%, var(--secondary-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section spacing */
+section {
+  position: relative;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(220, 38, 38, 0.2) 50%, transparent 100%);
+}
+
+/* Enhanced focus states for accessibility */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .hero-section {
+    background: none !important;
+    color: black !important;
+  }
+  
+  .parallax-bg {
+    display: none;
+  }
+}

@@ -1,0 +1,346 @@
+/* Login Activity Report Styles */
+
+/* Notification Bell Styles */
+.notification-bell {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+}
+
+.notification-bell:hover {
+    background: #e5e7eb;
+}
+
+.notification-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    z-index: 50;
+    margin-top: 8px;
+}
+
+.notification-dropdown.show {
+    display: block;
+}
+
+/* Summary Cards */
+.summary-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+/* Filter Header Layout */
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+    min-height: 60px;
+}
+
+.filter-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.filter-header-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Ensure the main filter containers align properly */
+.px-6.py-4.border-b.border-gray-200.flex.justify-between.items-center {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Export Buttons */
+.export-buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* Additional flex container fixes */
+.flex.justify-between.items-center {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.flex.items-center.gap-4 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Prevent text wrapping in titles */
+h4.text-lg.font-medium.text-gray-900 {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.export-buttons button,
+.filter-header-buttons button,
+.filter-header-buttons a {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.export-buttons button:hover,
+.filter-header-buttons button:hover,
+.filter-header-buttons a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f9fafb;
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .export-buttons button,
+    .filter-header-buttons button,
+    .filter-header-buttons a {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .px-6\.py-4\.border-b\.border-gray-200\.flex\.justify-between\.items-center,
+    .flex.justify-between.items-center {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: stretch !important;
+    }
+    
+    .flex.items-center.gap-4 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+    
+    .export-buttons,
+    .filter-header-buttons {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    
+    .export-buttons button,
+    .filter-header-buttons button,
+    .filter-header-buttons a {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .summary-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .summary-card {
+        padding: 1rem;
+    }
+    
+    h4.text-lg.font-medium.text-gray-900 {
+        white-space: normal;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .filter-header-buttons,
+    .export-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .filter-header-buttons button,
+    .filter-header-buttons a,
+    .export-buttons button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-failed {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.status-warning {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+/* Role Badges */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.role-student {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.role-teacher {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.role-admin {
+    background-color: #f3e8ff;
+    color: #7c3aed;
+}
+
+/* Severity Badges */
+.severity-critical {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.severity-warning {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.pagination a,
+.pagination span {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    color: #374151;
+    transition: all 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #f3f4f6;
+}
+
+.pagination .active {
+    background-color: #0284c7;
+    color: white;
+    border-color: #0284c7;
+}
+
+/* Animation for smooth transitions */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}

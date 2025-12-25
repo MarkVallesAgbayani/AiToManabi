@@ -1,0 +1,165 @@
+/* Success Page Animations and Styles */
+.font-jp {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Card Animation */
+.success-card {
+    animation: slideInUp 0.8s ease-out;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Success Image Animation */
+.success-image {
+    animation: fadeInImage 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Checkmark Icon Animation */
+.checkmark-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Success Icon Container Animation */
+.success-icon-container {
+    animation: bounceIn 0.8s ease-out 0.5s both;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Success Icon Animation */
+.success-icon {
+    animation: drawCheck 0.8s ease-out 0.8s both;
+}
+
+@keyframes drawCheck {
+    0% {
+        stroke-dasharray: 0 100;
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dasharray: 100 0;
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    transition: width 0.1s linear;
+}
+
+/* Hover Effects */
+.success-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 32px 64px -12px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+/* Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.success-card {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .success-card {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .success-image {
+        max-width: 200px;
+    }
+    
+    h1 {
+        font-size: 1.125rem;
+    }
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Fade Out Animation for redirect */
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}

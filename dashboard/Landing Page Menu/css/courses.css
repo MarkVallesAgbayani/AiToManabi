@@ -1,0 +1,217 @@
+/* Additional Custom Styles for Course Cards */
+
+/* Enhanced hover animations */
+.course-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1rem;
+    padding: 1px;
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.course-card:hover::before {
+    opacity: 1;
+}
+
+/* Price animation effects */
+.price-highlight {
+    transform: perspective(1000px) rotateX(0deg);
+    transition: transform 0.3s ease;
+}
+
+.price-highlight:hover {
+    transform: perspective(1000px) rotateX(-5deg);
+}
+
+/* Level badge animations */
+.level-beginner,
+.level-intermediate,
+.level-advanced {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.level-beginner::after,
+.level-intermediate::after,
+.level-advanced::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.level-beginner:hover::after,
+.level-intermediate:hover::after,
+.level-advanced:hover::after {
+    left: 100%;
+}
+
+/* Button pulse effect */
+.btn-purchase {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .course-card {
+        margin-bottom: 2rem;
+    }
+    
+    .course-card .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .price-highlight {
+        margin: 1rem 0;
+    }
+    
+    .btn-purchase {
+        width: 100%;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* Loading state */
+.btn-purchase:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: none;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+.btn-purchase:focus,
+.course-card:focus {
+    outline: 2px solid #ef4444;
+    outline-offset: 2px;
+}
+
+/* Course image overlay effects */
+.course-card img {
+    transition: transform 0.5s ease;
+}
+
+.course-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Enhanced shadows */
+.course-card {
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.course-card:hover {
+    box-shadow: 
+        0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Text animations */
+.course-card h3 {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Price text effects */
+.price-highlight .text-4xl {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive grid improvements */
+@media (min-width: 1024px) {
+    .course-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Course meta icons */
+.course-card svg {
+    filter: drop-shadow(0 1px 2px rgba(239, 68, 68, 0.1));
+}
+
+/* Enhanced gradient backgrounds */
+.gradient-red {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Course card entrance animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.course-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.course-card:nth-child(1) { animation-delay: 0.1s; }
+.course-card:nth-child(2) { animation-delay: 0.2s; }
+.course-card:nth-child(3) { animation-delay: 0.3s; }
+.course-card:nth-child(4) { animation-delay: 0.4s; }

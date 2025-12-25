@@ -1,0 +1,14 @@
+{
+  "name": "japanese-lms",
+  "version": "1.0.0",
+  "description": "Japanese Learning Management System",
+  "scripts": {
+    "build": "babel js/components --out-dir js/dist --presets=@babel/preset-react",
+    "watch": "babel js/components --out-dir js/dist --presets=@babel/preset-react --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-react": "^7.23.3"
+  }
+}

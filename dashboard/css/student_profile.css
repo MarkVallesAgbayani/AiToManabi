@@ -1,0 +1,89 @@
+.camera-btn {
+    width: 5px;
+    height: 5px;
+}
+
+.camera-icon {
+    width: 2px;
+    height: 2px;
+}
+
+/* Small screens and up (640px+) */
+.camera-btn {
+    width: 5px;
+    height: 5px;
+}
+
+.camera-icon {
+    width: 2px;
+    height: 2px;
+}
+
+.camera-btn {
+    width: 5px;
+    height: 5px;
+}
+
+.camera-icon {
+    width: 2px;
+    height: 2px;
+}
+
+/* Small screens and up (640px+) */
+@media (min-width: 640px) {
+    .camera-btn {
+        width: 0.5rem; /* 32px */
+        height: 0.5rem; /* 32px */
+    }
+    .camera-icon {
+        width: .9rem; /* 16px */
+        height: .9rem; /* 16px */
+    }
+}
+
+/* Medium screens and up (768px+) */
+@media (min-width: 768px) {
+    .camera-btn {
+        width: 2.5rem; /* 40px */
+        height: 2.5rem; /* 40px */
+    }
+    .camera-icon {
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+    }
+}
+/* Small screens and up (640px+) */
+@media (min-width: 640px) {
+    .camera-btn {
+        width: 2rem; /* 32px */
+        height: 2rem; /* 32px */
+    }
+    .camera-icon {
+        width: 1rem; /* 16px */
+        height: 1rem; /* 16px */
+    }
+}
+
+/* Medium screens and up (768px+) */
+@media (min-width: 768px) {
+    .camera-btn {
+        width: 2.5rem; /* 40px */
+        height: 2.5rem; /* 40px */
+    }
+    .camera-icon {
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+    }
+
+}
+/* Medium screens and up (768px+) */
+@media (min-width: 768px) {
+    .camera-btn {
+        width: 2.5rem; /* 40px */
+        height: 2.5rem; /* 40px */
+    }
+    .camera-icon {
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+    }
+}
