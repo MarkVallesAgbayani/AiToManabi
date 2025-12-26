@@ -20,7 +20,6 @@ function executeQuerySafely($pdo, $query, $params = []) {
         $stmt->execute($params);
         $executionTime = microtime(true) - $startTime;
         
-        // Log slow queries (adjust threshold for shared hosting)
         if ($executionTime > 2.0) {
             error_log("SLOW QUERY on Hostinger: {$executionTime}s - " . substr($query, 0, 100));
         }
