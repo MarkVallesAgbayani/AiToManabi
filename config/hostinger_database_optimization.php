@@ -1,8 +1,5 @@
 <?php
-// HOSTINGER-SAFE DATABASE OPTIMIZATIONS
-// These settings are safe for shared hosting environments
 
-// Add these to your existing database.php config
 $hostinger_safe_options = [
     // Keep your existing options
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -10,17 +7,12 @@ $hostinger_safe_options = [
     PDO::ATTR_EMULATE_PREPARES => false,
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci",
     
-    // HOSTINGER-SAFE additions
     PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,  // Improves memory usage
     PDO::ATTR_TIMEOUT => 10,                     // Reasonable timeout for shared hosting
-    // DO NOT add PDO::ATTR_PERSISTENT on Hostinger - can cause connection limits
+
 ];
 
-// HOSTINGER-SPECIFIC FUNCTIONS
 
-/**
- * Safe query execution with timeout handling
- */
 function executeQuerySafely($pdo, $query, $params = []) {
     try {
         $startTime = microtime(true);
@@ -40,9 +32,7 @@ function executeQuerySafely($pdo, $query, $params = []) {
     }
 }
 
-/**
- * Check Hostinger database connection health
- */
+
 function checkHostingerConnectionHealth($pdo) {
     try {
         // Simple health check
