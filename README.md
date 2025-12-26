@@ -7,7 +7,7 @@ Features:
 - Role-based access for teachers and admins (e.g., content management, user management).
 - Analytics dashboard for monitoring performance, engagement, and learning outcomes.
 - Responsive UI designed for desktop and mobile learners.
-
+_________________________________________________________________________________________________________________________________________________________________________________
 Tech Stack
 Frontend: HTML, CSS, JavaScript (Alpine.js or similar lightweight framework)
 
@@ -17,8 +17,9 @@ Database: MySQL / MariaDB (via phpMyAdmin in local dev)
 
 AI Integration: Transformer-based LLM LlaMA 3.1 8B
 ​
-
 Deployment: XAMPP / local development and shared hosting (e.g., Hostinger)
+
+_________________________________________________________________________________________________________________________________________________________________________________
 
 Update this section to match your exact technologies, dependencies, and versions.
 
@@ -65,4 +66,5 @@ The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
