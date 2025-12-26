@@ -36,10 +36,32 @@ The AI tutor is designed to support:
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
 
+------------------------------------------------------------------------
 
+⚠️ Usage & Permission Notice
 
+This repository is publicly visible for school and academic purposes only.
 
+❗ Unauthorized use is strictly prohibited.
+You are NOT allowed to:
+- Copy, reuse, modify, or redistribute this project
+- Submit this work as your own (academic dishonesty)
+- Use any part of this code for commercial or personal projects without explicit permission from the owner.
 
+📚 Purpose
+- This project was created solely for educational/school requirements and is shared publicly for viewing and reference only.
+
+If you wish to:
+- Use the code
+- Fork the project for learning purposes
+- Reference parts of this repository
+
+You must request permission first.
+
+📧 Contact me at:
+markagbayanipersonal19@gmail.com
+
+Any use without permission may be reported and considered a violation of academic integrity policies.
 
 
 
