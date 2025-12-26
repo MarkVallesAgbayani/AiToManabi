@@ -17,8 +17,6 @@ Tech Stack
 
 _________________________________________________________________________________________________________________________________________________________________________________
 
-Update this section to match your exact technologies, dependencies, and versions.
-
 **Getting Started**
 
 **Prerequisites**
@@ -28,12 +26,12 @@ Update this section to match your exact technologies, dependencies, and versions
 - Node.js & npm (if you have a build step for assets)
 
 **Installation**
+
 Clone the repository:
 
 bash
-git clone https://github.com/<your-username>/AiToManabi.git
+git clone https://github.com/<MarkVallesAgbayani>/AiToManabi.git
 
-cd AiToManabi
 
 ---------------------------------------------------------------------------------------------
 **Core Modules**
@@ -51,6 +49,7 @@ The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
 
 
