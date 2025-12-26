@@ -9,33 +9,26 @@ Features:
 - Responsive UI designed for desktop and mobile learners.
 _________________________________________________________________________________________________________________________________________________________________________________
 Tech Stack
-Frontend: HTML, CSS, JavaScript (Alpine.js or similar lightweight framework)
-
-Backend: PHP (REST-style endpoints)
-
-Database: MySQL / MariaDB (via phpMyAdmin in local dev)
-
-AI Integration: Transformer-based LLM LlaMA 3.1 8B
-​
-Deployment: XAMPP / local development and shared hosting (e.g., Hostinger)
+- Frontend: HTML, CSS, JavaScript (Alpine.js or similar lightweight framework)
+- Backend: PHP (REST-style endpoints)
+- Database: MySQL / MariaDB (via phpMyAdmin in local dev)
+- AI Integration: Transformer-based LLM LlaMA 3.1 8B​
+- Deployment: XAMPP / local development and shared hosting (e.g., Hostinger)
 
 _________________________________________________________________________________________________________________________________________________________________________________
 
 Update this section to match your exact technologies, dependencies, and versions.
 
-Getting Started
-Prerequisites
-PHP (version X.X+)
+**Getting Started**
 
-MySQL / MariaDB
+**Prerequisites**
+-  PHP (version X.X+)
+- MySQL / MariaDB
+- Composer (if you use it for dependencies)
+- Node.js & npm (if you have a build step for assets)
 
-Composer (if you use it for dependencies)
-
-Node.js & npm (if you have a build step for assets)
-
-Installation
+**Installation**
 Clone the repository:
-
 bash
 git clone https://github.com/<your-username>/AiToManabi.git
 cd AiToManabi
@@ -50,21 +43,21 @@ npm install
 npm run build
 
 ---------------------------------------------------------------------------------------------
-Core Modules
-Authentication: Registration, login, password reset, and role management.
+**Core Modules**
+- Authentication: Registration, login, password reset, and role management.
+- Courses & Lessons: CRUD for Japanese lessons (vocabulary, grammar, kanji, listening).
+- AI Tutor Chat: Chat interface that sends learner queries to the LLM and renders responses.
+- Assessments: Quizzes, scoring, and feedback.
+- Progress Tracking: Student dashboards with completion rates and performance metrics.
 
-Courses & Lessons: CRUD for Japanese lessons (vocabulary, grammar, kanji, listening).
-
-AI Tutor Chat: Chat interface that sends learner queries to the LLM and renders responses.
-
-Assessments: Quizzes, scoring, and feedback.
-
-Progress Tracking: Student dashboards with completion rates and performance metrics.
+---------------------------------------------------------------------------------------------
 
 **AI Tutor Overview**
+
 The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
 
