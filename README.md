@@ -1,4 +1,4 @@
-**AiToManabi **– AI-Driven Japanese Language Tutor
+AiToManabi – AI-Driven Japanese Language Tutor
 **AiToManabi** is a web-based learning management system (LMS) that delivers personalized Japanese language instruction powered by AI. It combines structured lessons, interactive exercises, and an AI tutor that adapts to each learner’s progress.​
 
 **Features:**
@@ -51,6 +51,7 @@ The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
 
 
