@@ -29,18 +29,11 @@ Update this section to match your exact technologies, dependencies, and versions
 
 **Installation**
 Clone the repository:
+
 bash
 git clone https://github.com/<your-username>/AiToManabi.git
+
 cd AiToManabi
-Install backend dependencies (if any):
-
-bash
-composer install
-Install frontend dependencies (if applicable):
-
-bash
-npm install
-npm run build
 
 ---------------------------------------------------------------------------------------------
 **Core Modules**
@@ -58,6 +51,7 @@ The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
 
 
