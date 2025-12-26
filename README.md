@@ -19,16 +19,7 @@ ________________________________________________________________________________
 
 _________________________________________________________________________________________________________________________________________________________________________________
 
-**Getting Started**
 
-**Prerequisites**
--  PHP (version X.X+)
-- MySQL / MariaDB
-- Composer (if you use it for dependencies)
-- Node.js & npm (if you have a build step for assets)
-
-
----------------------------------------------------------------------------------------------
 **Core Modules**
 - Authentication: Registration, login, password reset, and role management.
 - Courses & Lessons: CRUD for Japanese lessons (vocabulary, grammar, kanji, listening).
@@ -44,6 +35,7 @@ The AI tutor is designed to support:
 - Grammar explanations with examples tailored to JLPT level.
 - Vocabulary practice, example sentences, and English/Japanese translations.
 - Conversation-style practice with context-aware responses.
+
 
 
 
